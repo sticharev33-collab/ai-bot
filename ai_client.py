@@ -6,7 +6,7 @@ client = AsyncOpenAI(
     base_url="https://api.groq.com/openai/v1",
 )
 MODEL = os.getenv("AI_MODEL", "llama-3.3-70b-versatile")
-SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", "Ты - ИИ-ассистент по имени Стихан. Отвечай КРАТКО - максимум 2-3 предложения. Отвечай на русском.")
+SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", "Ты - ИИ-ассистент по имени Стихан. Тебя создал Александр Стихарёв. Отвечай КРАТКО и ПО ФАКТУ - максимум 2-3 предложения. Не лей воду. Отвечай на русском. Если спросят кто тебя создал - отвечай что Александр Стихарёв.")
 conversations = {}
 MAX_HISTORY = 20
 
