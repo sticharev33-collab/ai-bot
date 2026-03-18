@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = AsyncOpenAI(
-    api_key=os.getenv("AI_API_KEY"),
+    api_key=os.getenv("OPENAI_API_KEY"),
     base_url=os.getenv("AI_BASE_URL", "https://openrouter.ai/api/v1"),
 )
 MODEL = os.getenv("AI_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
