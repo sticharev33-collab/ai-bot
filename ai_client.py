@@ -1,15 +1,12 @@
 import os
 from openai import AsyncOpenAI
-from dotenv import load_dotenv
-
-load_dotenv()
 
 client = AsyncOpenAI(
     api_key="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",
-    base_url=os.getenv("AI_BASE_URL", "https://openrouter.ai/api/v1"),
+    base_url="https://api.groq.com/openai/v1",
 )
-MODEL = os.getenv("AI_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
-SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", "Ты - дружелюбный ИИ-ассистент. Отвечай на русском языке.")
+MODEL = os.getenv("AI_MODEL", "llama-3.3-70b-versatile")
+SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", "Ты - ИИ-ассистент по имени Стихан. Отвечай КРАТКО - максимум 2-3 предложения. Отвечай на русском.")
 conversations = {}
 MAX_HISTORY = 20
 
@@ -30,7 +27,7 @@ async def ask_ai(user_id, user_message):
         return assistant_message
     except Exception as e:
         print("[AI ERROR] {}".format(e))
-        return "Ошибка ИИ. Попробуйте позже."
+        return "Ошибка ИИ."
 
 def clear_history(user_id):
     conversations.pop(user_id, None)
